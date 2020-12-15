@@ -31,6 +31,28 @@ export class OrdersService {
       return null;
     }
 
+    updateCart( fproduct : string , sproduct : string )
+    {
+      // We Use the method getProduct from the product module to find the products that we want to exchange
+        var firstproduct = this.productsService.getProduct(fproduct);
+        var secondproduct = this.productsService.getProduct(sproduct);
+
+        // We get the product index from index cart
+        const productindex = this.getCartIndex(fproduct);
+
+        if(firstproduct.category === secondproduct.category)
+       {
+         this.cart[productindex] = secondproduct;
+       }
+       else
+       {
+         throw new NotFoundException('Could not change this product.');
+       }
+
+       return null;
+       
+     }
+
      //Remove all items from cart
      dropCart()
      {
@@ -68,27 +90,7 @@ export class OrdersService {
       
      }
     
-     updateCart( fproduct : string , sproduct : string )
-     {
-       // We Use the method getProduct from the product module to find the products that we want to exchange
-         var firstproduct = this.productsService.getProduct(fproduct);
-         var secondproduct = this.productsService.getProduct(sproduct);
-
-         // We get the product index from index cart
-         const productindex = this.getCartIndex(fproduct);
-
-         if(firstproduct.category === secondproduct.category)
-        {
-          this.cart[productindex] = secondproduct;
-        }
-        else
-        {
-          throw new NotFoundException('Could not change this product.');
-        }
-
-        return null;
-        
-      }
+   
 
      deleteOrder(ordId : string)
      {
