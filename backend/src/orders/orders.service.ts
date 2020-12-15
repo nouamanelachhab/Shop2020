@@ -2,6 +2,7 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import{Product} from '../products/product.model';
 import{Order} from './order.model';
 import{ProductsService} from '../products/products.service';
+
 @Injectable()
 export class OrdersService {
 
@@ -31,6 +32,9 @@ export class OrdersService {
       return null;
     }
 
+    getCart(){
+      return "hello";
+    }
     updateCart( fproduct : string , sproduct : string )
     {
       // We Use the method getProduct from the product module to find the products that we want to exchange

@@ -9,7 +9,7 @@ export declare class OrdersService {
     private sumprice;
     addtoCart(prodId: string): any;
     deleteFromCart(prodId: string): any;
-    getCart(): string;
+    getCart(): Product[];
     updateCart(fproduct: string, sproduct: string): any;
     dropCart(): any;
     confirmOrder(addedCart: Product[]): any;

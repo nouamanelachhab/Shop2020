@@ -11,15 +11,22 @@ export class ProductsController{
       return { addedProduct : generatedProd };
     }
 
+
+
+   
+
     @Get()
     getAllProducts(){
         return this.productsService.getAllProducts();
 
     }
+    
     @Get(':id')
-    getProduct(@Param('id') prodId : string){
+    getProductbyid(@Param('id') prodId : string){
         return this.productsService.getProduct(prodId);
     }
+
+   
 
     @Patch(':id')
     updateProduct(@Param('id') prodId : string, @Body('name') name : string, @Body('category') category : string , @Body('price') price : number){

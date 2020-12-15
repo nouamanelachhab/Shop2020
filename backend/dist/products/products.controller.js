@@ -26,7 +26,7 @@ let ProductsController = class ProductsController {
     getAllProducts() {
         return this.productsService.getAllProducts();
     }
-    getProduct(prodId) {
+    getProductbyid(prodId) {
         return this.productsService.getProduct(prodId);
     }
     updateProduct(prodId, name, category, price) {
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], ProductsController.prototype, "getProduct", null);
+], ProductsController.prototype, "getProductbyid", null);
 __decorate([
     common_1.Patch(':id'),
     __param(0, common_1.Param('id')), __param(1, common_1.Body('name')), __param(2, common_1.Body('category')), __param(3, common_1.Body('price')),

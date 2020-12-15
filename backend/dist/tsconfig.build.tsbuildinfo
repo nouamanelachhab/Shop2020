@@ -1177,7 +1177,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.service.ts": {
-        "version": "5d4242d50092a353e5ab1f06663a89dbc714c7d9d70072ea03c83c5b14750f05",
+        "version": "d0318fddb2474121e365178846c11bb4377b62bd313d87f90aca5aa7dc74066b",
         "signature": "d8f4cb0109c1b399d657807fd6af504d74a9300325e0fc915abdbf658b464a97",
         "affectsGlobalScope": false
       },
@@ -1197,8 +1197,8 @@
         "affectsGlobalScope": false
       },
       "../src/products/products.controller.ts": {
-        "version": "c35f6385644874ac383dcd75a63e4c3cd355ed929a2584ee0d4abec26c9386e7",
-        "signature": "a9f65b8bd7761ac0fda422103ab6858d72edce0cebf77fcfc7e8be3d2a3d53e8",
+        "version": "5f2136416461e7768c258a6056beeb15782d5abd8b6383854285debe1778a427",
+        "signature": "1582dd16c59605151ba77edfd7ac81ef7b4a638ce509309d67af6553a33ddedf",
         "affectsGlobalScope": false
       },
       "../src/products/products.module.ts": {
@@ -1206,8 +1206,28 @@
         "signature": "869dc75f2a364405dd7250ffa7f55b4facfc75218498a27b14ca830cdfce65f5",
         "affectsGlobalScope": false
       },
+      "../src/orders/order.model.ts": {
+        "version": "54ad362671e76da95c5a48f7c0b8a9c247000fcae709a654b4b016fabf3bef61",
+        "signature": "4d5bf0cbe0f6f4f6f2ea7c1a09a8c723c05d8e81e24f872d7915ca4ed568b026",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.service.ts": {
+        "version": "242f17c8b22aeff222ff0a78bd4be88a188c459605e8253bc73f6314ae684987",
+        "signature": "85a1d78ee47af31dd5e3947e1a6194096e4b09327bd0e44939e37fe5ef63bd9a",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.controller.ts": {
+        "version": "f54e050eb73d37551488736e342035b731bb43959ab4b3fd97aa82c64eada14b",
+        "signature": "1bcedb40c586a37d2301c8d1bd4b9a85afaaec1514f461d1eaff4754bb3a74aa",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.module.ts": {
+        "version": "4359e68aa42373b66ba952c686bd87ef63ad55a6088c7a71a17157f0c3facf54",
+        "signature": "f2a098761374558eef78bc1c94d34464e78aba0b8a2a2b58cb009a7e88a54002",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "9283668f858cacb3756811818c62662f5986e2199c3c79d6e84ec58a645d4b5a",
+        "version": "690b71ee99de765dc0bac0e54675d81c2a81edc20b9cbec50401096d75d7137c",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -1394,26 +1414,6 @@
       "../src/main.ts": {
         "version": "3c8967198a459fe0868276c735fb4ecbe75c3ed2bbda02d4dcee787c5c448528",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
-        "affectsGlobalScope": false
-      },
-      "../src/orders/order.model.ts": {
-        "version": "54ad362671e76da95c5a48f7c0b8a9c247000fcae709a654b4b016fabf3bef61",
-        "signature": "4d5bf0cbe0f6f4f6f2ea7c1a09a8c723c05d8e81e24f872d7915ca4ed568b026",
-        "affectsGlobalScope": false
-      },
-      "../src/orders/orders.controller.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../src/orders/orders.module.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../src/orders/orders.service.ts": {
-        "version": "2fbe80d45b6d42890e6b15655b407e555e159ec450a0d89081fbe0b9a7bb3022",
-        "signature": "8fcb0f69f3c94e4b1889803045bdfb9bbef114600e7cb012b88f3ec7adeefd30",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -3255,6 +3255,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
+        "../src/orders/orders.module.ts",
         "../src/products/products.module.ts"
       ],
       "../src/app.service.ts": [
@@ -3266,6 +3267,17 @@
       ],
       "../src/orders/order.model.ts": [
         "../src/products/product.model.ts"
+      ],
+      "../src/orders/orders.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/orders/orders.service.ts"
+      ],
+      "../src/orders/orders.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/orders/orders.controller.ts",
+        "../src/orders/orders.service.ts",
+        "../src/products/products.module.ts",
+        "../src/products/products.service.ts"
       ],
       "../src/orders/orders.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -4563,6 +4575,9 @@
       ],
       "../src/orders/order.model.ts": [
         "../src/products/product.model.ts"
+      ],
+      "../src/orders/orders.controller.ts": [
+        "../src/orders/orders.service.ts"
       ],
       "../src/orders/orders.service.ts": [
         "../src/products/product.model.ts",
