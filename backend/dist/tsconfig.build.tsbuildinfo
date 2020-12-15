@@ -1212,17 +1212,17 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.service.ts": {
-        "version": "45ab142562615bc27453f1b3683c04a9b56d885b4dad9b7b67db261406b31fea",
-        "signature": "85a1d78ee47af31dd5e3947e1a6194096e4b09327bd0e44939e37fe5ef63bd9a",
+        "version": "01e2775ce812705d094b93860b212f53b781ce9351b7e35032ddc71b1351da47",
+        "signature": "ba5d9736abfc5d1387d9a890d2b3b58946984e436acd5b87b9117ba1713a61bc",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.controller.ts": {
-        "version": "6c8ed9de9cf9ec0c9523bf03b1f9ccb734c0805bc6d86595e8b80ef40073ab44",
-        "signature": "39781eb95d6634b292842af662e482435597ef187a40062e5e5ef3fe313f7a94",
+        "version": "18c418cf47bc3b960c5efaafbd9e933762738b3c817a2aa3446d1e0e69417753",
+        "signature": "ded225642e871ce5420ecfb68e4db582322108e003a4bc53398de5dd922ab414",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.module.ts": {
-        "version": "4359e68aa42373b66ba952c686bd87ef63ad55a6088c7a71a17157f0c3facf54",
+        "version": "75217a44608e2ce8ae8db6e218bd0c944aade86bd83722521fc7c9bcf2748223",
         "signature": "f2a098761374558eef78bc1c94d34464e78aba0b8a2a2b58cb009a7e88a54002",
         "affectsGlobalScope": false
       },
@@ -4577,7 +4577,8 @@
         "../src/products/product.model.ts"
       ],
       "../src/orders/orders.controller.ts": [
-        "../src/orders/orders.service.ts"
+        "../src/orders/orders.service.ts",
+        "../src/products/product.model.ts"
       ],
       "../src/orders/orders.service.ts": [
         "../src/products/product.model.ts",

@@ -31,7 +31,7 @@ let OrdersService = class OrdersService {
         return null;
     }
     getCart() {
-        return "hello";
+        return this.cart;
     }
     updateCart(fproduct, sproduct) {
         var firstproduct = this.productsService.getProduct(fproduct);

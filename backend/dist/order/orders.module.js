@@ -16,9 +16,9 @@ let OrdersModule = class OrdersModule {
 };
 OrdersModule = __decorate([
     common_1.Module({
-        imports: [products_module_1.ProductsModule],
+        imports: [forwardRef(() => products_module_1.ProductsModule)],
         controllers: [orders_controller_1.OrdersController],
-        providers: [orders_service_1.OrdersService, products_service_1.ProductsService]
+        providers: [orders_service_1.OrdersService]
     })
 ], OrdersModule);
 exports.OrdersModule = OrdersModule;

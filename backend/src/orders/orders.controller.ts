@@ -12,13 +12,15 @@ export class OrdersController{
     @Post()
     addtoCart(@Body('id') prodId : string,)  
     {
-     // const generatedProd = this.ordersService.addtoCart(prodId);
-      return null;
+      const generatedProd = this.ordersService.addtoCart(prodId);
+
+    
+      return "added successfully";
     }
 
     @Get()
     showCart()
     {
-        return "Hello World";
+        return this.ordersService.getCart();
     }
 }

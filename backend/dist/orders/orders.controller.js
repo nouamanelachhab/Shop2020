@@ -20,10 +20,11 @@ let OrdersController = class OrdersController {
         this.ordersService = ordersService;
     }
     addtoCart(prodId) {
-        return null;
+        const generatedProd = this.ordersService.addtoCart(prodId);
+        return "added successfully";
     }
     showCart() {
-        return "Hello World";
+        return this.ordersService.getCart();
     }
 };
 __decorate([

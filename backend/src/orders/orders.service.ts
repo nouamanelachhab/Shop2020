@@ -5,6 +5,13 @@ import{ProductsService} from '../products/products.service';
 
 @Injectable()
 export class OrdersService {
+ 
+/*
+ constructor(
+    @Inject(forwardRef(() => ProductsService))
+    private productsService: ProductsService,
+  ) {}
+*/
 
     constructor(private productsService : ProductsService){}
     
@@ -36,7 +43,7 @@ export class OrdersService {
     }
 
     getCart(){
-      return "hello";
+      return this.cart;
     }
     updateCart( fproduct : string , sproduct : string )
     {
