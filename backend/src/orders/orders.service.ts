@@ -41,9 +41,9 @@ export class OrdersService {
      //Order methods
 
      // Add New Order
-     addOrder(addedProduct : Product[])
+     confirmOrder(addedCart: Product[])
      {
-        addedProduct = this.cart;
+        addedCart = this.cart;
 
         const localOrder : Order = null;
 
@@ -58,13 +58,37 @@ export class OrdersService {
         }
 
         localOrder.totalprice = this.sumprice;
+
         this.order.push(localOrder);
+        this.cart = [];
+        this.sumprice = 0;
         
         
         return null;
       
      }
-     
+    
+     updateCart( fproduct : string , sproduct : string )
+     {
+       // We Use the method getProduct from the product module to find the products that we want to exchange
+         var firstproduct = this.productsService.getProduct(fproduct);
+         var secondproduct = this.productsService.getProduct(sproduct);
+
+         // We get the product index from index cart
+         const productindex = this.getCartIndex(fproduct);
+
+         if(firstproduct.category === secondproduct.category)
+        {
+          this.cart[productindex] = secondproduct;
+        }
+        else
+        {
+          throw new NotFoundException('Could not change this product.');
+        }
+
+        return null;
+        
+      }
 
      deleteOrder(ordId : string)
      {
@@ -73,27 +97,13 @@ export class OrdersService {
          return null;
 
      }
-
-     updateOrder(orderId : string, fproduct : string , sproduct : string )
-     {
-         const firstproduct = this.productsService.getProduct(fproduct);
-         const secondproduct = this.productsService.getProduct(sproduct);
-
-         if(firstproduct.category === secondproduct.category)
-         {
-
-         }
-     }
-
-
-
-     
+    
     // look up the index of an order in the cart list
-    private getOrderIndex(arr : Product[], pId : string)
+    private getOrderIndex(oId : string)
     {
-        const order = arr.findIndex(prd => prd.id === pId)
+        const orderindex = this.order.findIndex(oid => oid.id === oId)
       
-       return order;
+       return orderindex;
     }
 
 

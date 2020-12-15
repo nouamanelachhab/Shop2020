@@ -34,8 +34,8 @@ let OrdersService = class OrdersService {
         this.cart = [];
         return null;
     }
-    addOrder(addedProduct) {
-        addedProduct = this.cart;
+    confirmOrder(addedCart) {
+        addedCart = this.cart;
         const localOrder = null;
         localOrder.productslist = this.cart;
         localOrder.id = Math.random().toString();
@@ -44,6 +44,20 @@ let OrdersService = class OrdersService {
         }
         localOrder.totalprice = this.sumprice;
         this.order.push(localOrder);
+        this.cart = [];
+        this.sumprice = 0;
+        return null;
+    }
+    updateCart(fproduct, sproduct) {
+        var firstproduct = this.productsService.getProduct(fproduct);
+        var secondproduct = this.productsService.getProduct(sproduct);
+        const productindex = this.getCartIndex(fproduct);
+        if (firstproduct.category === secondproduct.category) {
+            this.cart[productindex] = secondproduct;
+        }
+        else {
+            throw new common_1.NotFoundException('Could not change this product.');
+        }
         return null;
     }
     deleteOrder(ordId) {
@@ -51,15 +65,9 @@ let OrdersService = class OrdersService {
         this.order.splice(index, 1);
         return null;
     }
-    updateOrder(orderId, fproduct, sproduct) {
-        const firstproduct = this.productsService.getProduct(fproduct);
-        const secondproduct = this.productsService.getProduct(sproduct);
-        if (firstproduct.category === secondproduct.category) {
-        }
-    }
-    getOrderIndex(arr, pId) {
-        const order = arr.findIndex(prd => prd.id === pId);
-        return order;
+    getOrderIndex(oId) {
+        const orderindex = this.order.findIndex(oid => oid.id === oId);
+        return orderindex;
     }
     getProdIndex(oId) {
         const order = this.order.findIndex(ord => ord.id === oId);

@@ -10,9 +10,9 @@ export declare class OrdersService {
     addtoCart(prodId: string): any;
     deleteFromCart(prodId: string): any;
     dropCart(): any;
-    addOrder(addedProduct: Product[]): any;
+    confirmOrder(addedCart: Product[]): any;
+    updateCart(fproduct: string, sproduct: string): any;
     deleteOrder(ordId: string): any;
-    updateOrder(orderId: string, fproduct: string, sproduct: string): void;
     private getOrderIndex;
     private getProdIndex;
     private getCartIndex;
