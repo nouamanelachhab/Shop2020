@@ -7,10 +7,13 @@ import{ProductsService} from '../products/products.service';
 export class OrdersService {
 
     constructor(private productsService : ProductsService){}
+    
     private avaibleproducts :Product[] =this.productsService.getAllProducts()  ;
     private cart : Product[] = [];
     private order : Order[] = [];
     private sumprice : number = 0;
+    
+    
 
 
 

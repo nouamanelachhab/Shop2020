@@ -16,6 +16,7 @@ ProductsModule = __decorate([
     common_1.Module({
         controllers: [products_controller_1.ProductsController],
         providers: [products_service_1.ProductsService],
+        exports: [products_service_1.ProductsService]
     })
 ], ProductsModule);
 exports.ProductsModule = ProductsModule;
