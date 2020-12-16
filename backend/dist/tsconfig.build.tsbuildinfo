@@ -1217,7 +1217,7 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.controller.ts": {
-        "version": "18c418cf47bc3b960c5efaafbd9e933762738b3c817a2aa3446d1e0e69417753",
+        "version": "cc63167672234dc3ce58b46187dd63d3aeb89eb8cc40901145aa1ab4e62f9e09",
         "signature": "ded225642e871ce5420ecfb68e4db582322108e003a4bc53398de5dd922ab414",
         "affectsGlobalScope": false
       },
