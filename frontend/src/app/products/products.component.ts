@@ -14,14 +14,24 @@ import { MyserviceService } from '../myservice.service';
 export class ProductsComponent implements OnInit {
 
   
-  prods : Product[] = [];
+  prods : JSON[] = [];
+
+  productList : Product[];
   product : Product;
- 
+  totalproducts : Object;
+  
   
   constructor(private myservice : MyserviceService) { 
      
   }
 
+  loadProducts() {
+    this.myservice.getProducts().subscribe((products) => {
+      this.productList = products;
+    })
+   
+  }
+  
   onClickMe()  {
    /* var ProductName = prompt("Name? ");
     var ProductCategory = prompt("Category? ");
@@ -46,17 +56,25 @@ export class ProductsComponent implements OnInit {
       console.log('name :'+ProductName + '\n category : ' +ProductCategory + '\n price : ' +ProductPrice);
       }
     }*/
-    this.myservice.getProduct().subscribe(prod => { 
-      this.prods.push(prod[0]["id"]);
-    console.log(this.prods);
-  })
+   
+    for(var i = 0; i<this.productList.length; i++)
+    {
+        console.log("nom : " + this.productList[i]["name"] );
+    }
    
   }
+
+  // loop 
+  /*  for(var i = 0; i<this.productList.length; i++)
+    {
+        console.log("nom : " + this.productList[i]["name"] );
+    }
+    */ 
  
   
-
-  
+ 
   ngOnInit(): void {
+  this.loadProducts();
   }
 
   hello(){

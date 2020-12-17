@@ -3,6 +3,7 @@ import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import  {Product} from './interfaces/product'
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +15,13 @@ export class MyserviceService {
 
   constructor(private httpClient : HttpClient) { }
 
-  private extractData(res: Response): any {
-    const body = res;
-    return body || { };
-  }
-
-  getProducts(): Observable<any> {
-    return this.httpClient.get(this.productstURL).pipe(
-      map(this.extractData)
-    );
-  }
-
+  
   getProduct()
   {
-    return this.httpClient.get(this.productstURL);
+    return this.httpClient.get(this.productstURL, {responseType: 'text'});
+  }
+
+  getProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.productstURL);
   }
 }
