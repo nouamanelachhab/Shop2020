@@ -24,7 +24,7 @@ let ProductsController = class ProductsController {
         return { addedProduct: generatedProd };
     }
     getAllProducts() {
-        return "salam ismi vodka";
+        return JSON.stringify(this.productsService.getAllProducts());
     }
     getProductbyid(prodId) {
         return this.productsService.getProduct(prodId);

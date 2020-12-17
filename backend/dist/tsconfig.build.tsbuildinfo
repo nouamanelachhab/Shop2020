@@ -1197,7 +1197,7 @@
         "affectsGlobalScope": false
       },
       "../src/products/products.controller.ts": {
-        "version": "e0b2fc4d2b4676050edff6fa51c88edcbd4c9cddca8f385551b5cfed6c504dd8",
+        "version": "614954074d7ca126e10a06c6aa876f50ec0897c046c78b86729f99e6991388de",
         "signature": "15f0399950216b2b719941d6e4cd06c45575939fe0dd8b57ccfe8fdf6f94a6c2",
         "affectsGlobalScope": false
       },

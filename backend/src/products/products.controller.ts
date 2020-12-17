@@ -17,8 +17,14 @@ export class ProductsController{
 
     @Get()
     getAllProducts(){
-      //  return this.productsService.getAllProducts();
-        return "salam ismi vodka";
+     
+
+      
+    
+
+        return JSON.stringify(this.productsService.getAllProducts());
+    
+
     }
     
     @Get(':id')

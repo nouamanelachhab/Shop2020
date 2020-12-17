@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { isNumber } from 'util';
 import{AppComponent} from '../app.component';
+import { Product } from '../interfaces/product';
 import { MyserviceService } from '../myservice.service';
+
 
 @Component({
   selector: 'app-products',
@@ -11,12 +13,16 @@ import { MyserviceService } from '../myservice.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private myservice : MyserviceService) { 
-   
   
+  prods : Product[] = [];
+  product : Product;
+ 
+  
+  constructor(private myservice : MyserviceService) { 
+     
   }
 
-  onClickMe() {
+  onClickMe()  {
    /* var ProductName = prompt("Name? ");
     var ProductCategory = prompt("Category? ");
     var ProductPrice =parseInt( prompt("Price ? "),10);
@@ -40,12 +46,10 @@ export class ProductsComponent implements OnInit {
       console.log('name :'+ProductName + '\n category : ' +ProductCategory + '\n price : ' +ProductPrice);
       }
     }*/
-    var z;
-     this.myservice.getProduct().subscribe(product=>
-       z =product
-      );
-
-    console.log(z);
+    this.myservice.getProduct().subscribe(prod => { 
+      this.prods.push(prod[0]["id"]);
+    console.log(this.prods);
+  })
    
   }
  
