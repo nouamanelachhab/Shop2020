@@ -29,6 +29,9 @@ let ProductsService = class ProductsService {
         }
         return product;
     }
+    deleteALL() {
+        this.products = [];
+    }
     updateProduct(pId, name, category, price) {
         const index = this.getProductIndex(pId);
         const product = this.getProduct(pId);

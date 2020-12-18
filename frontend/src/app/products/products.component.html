@@ -19,10 +19,10 @@
      
       
       <form class="form-inline my-2 my-lg-0" style="display: inline-block; text-align: center; margin-left: auto; margin-right: auto;">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" (click)="onClickAdd()">Search</button>
-      </form>
-
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" #searchinput>
+         </form>
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="serchproduct(searchinput.value)">Search</button>
+ 
 
       <!----------ADD PRODUCT MODAL-->
       <ng-template #content let-modal>
@@ -161,6 +161,19 @@
 
                          <figure>
                            <img [src] = "productImage(product.category)">
+
+                           <ul>
+
+                          <!-----------Edit Product------->
+                            <li><button  title="Edit Product" class="btn btn-success btn-circle btn-sm"><i class="fa fa-edit "></i></button></li>
+
+
+                            <br>
+
+
+                            <li><button (click) = " deleteProduct(product.id)" title="Delete Product" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash "></i></button></li>
+                    
+                          </ul>
                          </figure>
                         
                             <div class="publication-content">

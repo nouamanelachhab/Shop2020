@@ -19,10 +19,12 @@ export class ProductsComponent implements OnInit {
   
   productList : Product[];
   product : Product;
+  sproduct : Product[] = [];
 
   productCategories : String[] = ["TV","Smartphone" ,"Tablet","Watch","Headphone","Laptop"];
   totalproducts : Object;
   
+  olds : string = "";
   
   constructor(private myservice : MyserviceService,private modalService: NgbModal) { 
      
@@ -42,6 +44,35 @@ export class ProductsComponent implements OnInit {
   {
     return "../../assets/img/" + Cat +".png";
   }
+
+  deleteProduct(productId) {
+
+    if(confirm("Are you sure ?").valueOf())
+    {
+    this.myservice.deleteProduct(productId).subscribe();
+ 
+     console.log(productId);
+     window.alert("Product deleted");
+     
+     this.loadProducts();
+    }
+
+    else
+    {
+    window.alert("Product not deleted");
+     
+     this.loadProducts();
+    }
+  }
+
+  
+serchproduct(name)
+  {
+  
+
+  } 
+
+
   addProduct(productN : string, productC : string, productP){
     this.loadProducts();
     if(!productN || !productC || !productP)
@@ -53,7 +84,7 @@ export class ProductsComponent implements OnInit {
     this.myservice.addProduct(productN,productC,productP).subscribe();
     window.alert("Product : "+ productN + " added successfully.");
     }
-    location.reload();
+    this.loadProducts();
   }
   
 

@@ -1,4 +1,5 @@
 import{Controller , Post , Body, Get,Patch,Delete, Param} from '@nestjs/common';
+import { Server, ServerResponse } from 'http';
 import{ProductsService} from './products.service';
 @Controller('products')
 export class ProductsController{
@@ -40,10 +41,17 @@ export class ProductsController{
         return null;
     }
 
+    
+    @Delete()
+    deleteAll(){
+       this.productsService.deleteALL();
+        return ServerResponse;
+
+    }
     @Delete(':id')
     deleteProduct(@Param('id') prodId : string){
         this.productsService.deleteProduct(prodId);
-        return null;
+        return ServerResponse;
 
     }
 }

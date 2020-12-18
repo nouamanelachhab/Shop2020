@@ -29,5 +29,10 @@ export class MyserviceService {
     return this.httpClient.post(this.productstURL, { name: productName , category : productCategory ,price : ProductPrice })
   }
 
+  
+  deleteProduct(prodId) {
+    return this.httpClient.delete(this.productstURL+prodId);
+  }
 
+  
 }

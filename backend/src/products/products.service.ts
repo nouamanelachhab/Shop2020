@@ -24,6 +24,10 @@ export class ProductsService {
         return product;
     }
 
+    deleteALL()
+    {
+      this.products = [];
+    }
     
   updateProduct(pId: string, name: string, category: string, price: number) {
     const index = this.getProductIndex(pId);

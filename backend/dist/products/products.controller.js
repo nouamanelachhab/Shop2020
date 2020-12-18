@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsController = void 0;
 const common_1 = require("@nestjs/common");
+const http_1 = require("http");
 const products_service_1 = require("./products.service");
 let ProductsController = class ProductsController {
     constructor(productsService) {
@@ -33,9 +34,13 @@ let ProductsController = class ProductsController {
         this.productsService.updateProduct(prodId, name, category, price);
         return null;
     }
+    deleteAll() {
+        this.productsService.deleteALL();
+        return http_1.ServerResponse;
+    }
     deleteProduct(prodId) {
         this.productsService.deleteProduct(prodId);
-        return null;
+        return http_1.ServerResponse;
     }
 };
 __decorate([
@@ -65,6 +70,12 @@ __decorate([
     __metadata("design:paramtypes", [String, String, String, Number]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "updateProduct", null);
+__decorate([
+    common_1.Delete(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ProductsController.prototype, "deleteAll", null);
 __decorate([
     common_1.Delete(':id'),
     __param(0, common_1.Param('id')),
