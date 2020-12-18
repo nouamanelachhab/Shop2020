@@ -1,21 +1,21 @@
-## Project
+# Project
     
 This is  project is containing a rest api using nestjs and an angular client that consumes the api created using nestjs
 
-# Nest 
+## Nest 
 
 The api contains functions and operations that manages products and orders 
 
-# Angular 
+## Angular 
 
 The angular client sends http requests to the server then manipulate the responses
 
 
 
 
-## How to instal
+# How to instal
 
-# Server side 
+## Server side 
 
 Tirst of all you need to instal the nestjs application by reaching the backend folder and installing dependencies using the command :
 "npm i --save" 
@@ -25,7 +25,7 @@ then we start the server using the command  :
 PS : the default listening port of nestjs server is 3000 you can change it in src/main.ts
 (Cross-origin resource sharing is already enabled)
 
-# Client Side
+## Client Side
 
 To run the angular project you should get into the folder named frontend then run the command :"npm i --save"
 to instal the dependencies then run the command :"ng serve" 
