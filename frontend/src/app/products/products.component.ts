@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   productList : Product[];
   product : Product;
 
-  productCategories : String[] = ["TV","Smartphone" ,"Tablet","Watch","Headphone"];
+  productCategories : String[] = ["TV","Smartphone" ,"Tablet","Watch","Headphone","Laptop"];
   totalproducts : Object;
   
   
@@ -32,21 +32,35 @@ export class ProductsComponent implements OnInit {
   
 
   loadProducts() {
+    this.productList = [];
     this.myservice.getProducts().subscribe((products) => {
       this.productList = products;
     })
   }
 
+  productImage(Cat)
+  {
+    return "../../assets/img/" + Cat +".png";
+  }
   addProduct(productN : string, productC : string, productP){
+    this.loadProducts();
+    if(!productN || !productC || !productP)
+    {
+      window.alert("Error ! \n Product is not added");
+    }
+    else
+    {
     this.myservice.addProduct(productN,productC,productP).subscribe();
+    window.alert("Product : "+ productN + " added successfully.");
+    }
+    location.reload();
   }
   
 
 
   onClickAdd(){
 
-    this.addProduct("Kaoutar" , "Princess" , "oo");
-
+    
     this.loadProducts();
   }
 

@@ -27,31 +27,51 @@
       <!----------ADD PRODUCT MODAL-->
       <ng-template #content let-modal>
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <h4 class="modal-title" id="modal-basic-title">New Product</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form name="addProductForm">
             <div class="form-group">
               <div class="input-group">
-               <input type="text" placeholder="Product Name"/>
-               <br>
-               <input type="text" placeholder="Product category" />
-               <br>
-
-               <!------------Input with Applied currency mask------>
-                 <input placeholder="Price" currencyMask formControlName="value" [options]="{ prefix: '$ ', thousands: '.', decimal: ',' }"/>
-
-              </div>
-
+                <label class="input-label" required>Product Name</label>
+               <input name="nameI" style="margin-left: 18%;" type="text"  #pname ng-model="nameI" required/>
+               </div>
+                  <br>
+               <div class="input-group">
+                
+                <label class="input-label">Product category</label>
               
+
+                  <select  style="margin-left: 14%;"  #pcategory >
+                   <option value={{cat}} *ngFor = "let cat of productCategories"> {{cat}}</option>
+                   
+                 </select>
+                 
+               
+               </div>
+               <br>
+
+               <div class="input-group">
+                <label class="input-label">Product Price</label>
+                <!------------Input with Applied currency mask------>
+                <input style="margin-left: 20%;"  #pprice currencyMask formControlName="value" [options]="{ prefix: '$ ', thousands: '  ', decimal: '.' }"/>
+               </div>
+               
+               
+             
+
             </div>
+
           </form>
         </div>
+        <!------------End of Add Product Modal------>
+
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          <button #addbtn  type="submit" class="btn btn-outline-success" (click)="addProduct(pname.value , pcategory.value , pprice.value)">Add</button>
+          <button type="button" class="btn btn-outline-danger"  (click)="modal.close('Save click')">Cancel</button>
         </div>
       </ng-template>
       
@@ -67,7 +87,7 @@
        <!----------------Show cart-------------->
        <ng-template #content let-modal>
         <div class="modal-header" >
-          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <h4 class="modal-title" id="modal-basic-title">Cart</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -139,18 +159,15 @@
                       
                         <div class="single-publication">
 
-                         
-
+                         <figure>
+                           <img [src] = "productImage(product.category)">
+                         </figure>
+                        
                             <div class="publication-content">
+                          
                                 <span class="category">{{product.category}}</span>
                                 <h3><a href="#">{{product.name}}</a></h3>
-                                <ul>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                    <li><i class="icofont-star"></i></li>
-                                </ul>
+                              
                                 <h4 class="price">{{product.price}} </h4>
                             </div>
 
