@@ -40,10 +40,14 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  //show product image by category 
   productImage(Cat)
   {
     return "../../assets/img/" + Cat +".png";
   }
+
+
+
 
   deleteProduct(productId) {
 
@@ -65,7 +69,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  
+
 serchproduct(name)
   {
   
@@ -88,7 +92,20 @@ serchproduct(name)
   }
   
 
-
+  updateProduct(productID:string ,productN : string, productC : string, productP)
+    {
+      this.loadProducts();
+      if(!productN || !productC || !productP)
+      {
+        window.alert("Error ! \n Product is not added");
+      }
+      else
+      {
+      this.myservice.updateProduct(productID,productN,productC,productP).subscribe();
+      window.alert("Product : "+ productN + " Updated Successfully.");
+      }
+      this.loadProducts();
+    }
   onClickAdd(){
 
     

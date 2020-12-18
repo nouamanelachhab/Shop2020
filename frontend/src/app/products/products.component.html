@@ -67,13 +67,14 @@
 
           </form>
         </div>
-        <!------------End of Add Product Modal------>
+       
 
         <div class="modal-footer">
           <button #addbtn  type="submit" class="btn btn-outline-success" (click)="addProduct(pname.value , pcategory.value , pprice.value)">Add</button>
           <button type="button" class="btn btn-outline-danger"  (click)="modal.close('Save click')">Cancel</button>
         </div>
       </ng-template>
+       <!------------End of Add Product Modal------>
       
       <button  class="btn btn-md btn-success"style="background-color: #2f0064; border-color : #2f0064; margin-left:50%; " (click)="open(content)">+ Add Product</button>
       
@@ -165,12 +166,67 @@
                            <ul>
 
                           <!-----------Edit Product------->
-                            <li><button  title="Edit Product" class="btn btn-success btn-circle btn-sm"><i class="fa fa-edit "></i></button></li>
+                           
+                           <!----------Edit PRODUCT MODAL-->
+
+
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Update Product</h4>
+          <h4 class="modal-title" id="modal-basic-title">{{product.name}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="addProductForm">
+            <div class="form-group">
+              <div class="input-group">
+                <label class="input-label" required>Product Name</label>
+               <input name="nameI" style="margin-left: 18%;" type="text"  #pname ng-model="nameI" required value="{{product.name}}"/>
+               </div>
+                  <br>
+               <div class="input-group">
+                
+                <label class="input-label">Product category</label>
+              
+
+                  <select  style="margin-left: 14%;"  #pcategory  >
+                   <option value={{cat}} *ngFor = "let cat of productCategories" > {{cat}}</option>
+                   
+                 </select>
+                 
+               
+               </div>
+               <br>
+
+               <div class="input-group">
+                <label class="input-label" >Product Price</label>
+                <!------------Input with Applied currency mask------>
+                <input style="margin-left: 20%;"  #pprice currencyMask formControlName="value" [options]="{ prefix: '$ ', thousands: '  ', decimal: '.' }" value="{{product.price}}"/>
+               </div>
+               
+               
+             
+
+            </div>
+
+          </form>
+        </div>
+        <!------------End of Edit Product Modal------>
+
+        <div class="modal-footer">
+          <button #addbtn  type="submit" class="btn btn-outline-success" (click)="updateProduct(product.id,pname.value , pcategory.value , pprice.value)">Update</button>
+          <button type="button" class="btn btn-outline-danger"  (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+        
+                          <li><button  title="Edit Product" class="btn btn-success btn-circle btn-sm"   (click)="open(content)"><i class="fa fa-edit "></i></button></li>
 
 
                             <br>
 
-
+                          <!--------------------------Delete Product-->
                             <li><button (click) = " deleteProduct(product.id)" title="Delete Product" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash "></i></button></li>
                     
                           </ul>

@@ -34,5 +34,8 @@ export class MyserviceService {
     return this.httpClient.delete(this.productstURL+prodId);
   }
 
+  updateProduct(prodId,productName, productCategory, ProductPrice) {
+    return this.httpClient.patch(this.productstURL+prodId,{name: productName , category : productCategory ,price : ProductPrice});
+  }
   
 }
