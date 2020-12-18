@@ -1,6 +1,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">               
@@ -19,13 +20,89 @@
       
       <form class="form-inline my-2 my-lg-0" style="display: inline-block; text-align: center; margin-left: auto; margin-right: auto;">
         <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="onClickAdd()">Search</button>
       </form>
 
 
+      <!----------ADD PRODUCT MODAL-->
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="input-group">
+               <input type="text" placeholder="Product Name"/>
+               <br>
+               <input type="text" placeholder="Product category" />
+               <br>
+
+               <!------------Input with Applied currency mask------>
+                 <input placeholder="Price" currencyMask formControlName="value" [options]="{ prefix: '$ ', thousands: '.', decimal: ',' }"/>
+
+              </div>
+
+              
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
       
-    <button type="button" class="btn btn-primary " style=" width: 50px;     height: 50px;     padding-top: 0px;  padding-bottom: 9px; padding-right: 14px;   border-radius: 25px;  text-align: center; font-size: 40px;
-    line-height: 0em; " (click) = "onClickMe()">  +</button>
+      <button  class="btn btn-md btn-success"style="background-color: #2f0064; border-color : #2f0064; margin-left:50%; " (click)="open(content)">+ Add Product</button>
+      
+      <hr>
+      
+
+      <!------------------end---------------->
+
+
+
+       <!----------------Show cart-------------->
+       <ng-template #content let-modal>
+        <div class="modal-header" >
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+      
+      <button class="btn btn-md btn-outline-success" style="border-color: #2f0064; color: #2f0064; background-color: transparent;" (click)="open(content)">Cart</button>
+      
+      <hr>
+      
+      
+
+      <!------------------end -->
+
+
+
+      
+   
+
     
 
 

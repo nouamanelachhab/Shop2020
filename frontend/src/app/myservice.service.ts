@@ -16,12 +16,18 @@ export class MyserviceService {
   constructor(private httpClient : HttpClient) { }
 
   
-  getProduct()
+  getProduct(productId)
   {
-    return this.httpClient.get(this.productstURL, {responseType: 'text'});
+    return this.httpClient.get(this.productstURL);
   }
 
   getProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.productstURL);
   }
+
+  addProduct(productName, productCategory, ProductPrice) {
+    return this.httpClient.post(this.productstURL, { name: productName , category : productCategory ,price : ProductPrice })
+  }
+
+
 }
