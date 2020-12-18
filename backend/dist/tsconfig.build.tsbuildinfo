@@ -1217,8 +1217,8 @@
         "affectsGlobalScope": false
       },
       "../src/orders/orders.controller.ts": {
-        "version": "cc63167672234dc3ce58b46187dd63d3aeb89eb8cc40901145aa1ab4e62f9e09",
-        "signature": "ded225642e871ce5420ecfb68e4db582322108e003a4bc53398de5dd922ab414",
+        "version": "f2c3f72b0ff2ba9e50f3c11c061ac0ede36a5e024bd420a0af29100fca918515",
+        "signature": "4de9e13ca03ce419b6e20654689ad7d78c39ef2fe9360eed7a22353b2d12bc18",
         "affectsGlobalScope": false
       },
       "../src/orders/orders.module.ts": {
@@ -3270,6 +3270,7 @@
       ],
       "../src/orders/orders.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
         "../src/orders/orders.service.ts"
       ],
       "../src/orders/orders.module.ts": [
@@ -4578,6 +4579,7 @@
         "../src/products/product.model.ts"
       ],
       "../src/orders/orders.controller.ts": [
+        "../node_modules/@types/node/http.d.ts",
         "../src/orders/orders.service.ts",
         "../src/products/product.model.ts"
       ],
